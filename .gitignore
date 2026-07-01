@@ -1,0 +1,73 @@
+# Build outputs
+build/
+build-*/
+cmake-build-*/
+out/
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+
+# Model weights and large artifacts
+models/*
+!models/README.md
+!models/*.example.json
+*.gguf
+*.onnx
+*.bin
+*.safetensors
+
+# Benchmark results (raw runs stay local)
+results/*
+!results/README.md
+!results/samples/
+
+# Third-party SDKs and proprietary binaries (submodule metadata is tracked)
+third_party/qnn-sdk/
+third_party/onnxruntime-*/
+*.qnn
+
+# Secrets and local config
+.env
+.env.*
+*.pem
+credentials.json
+environment.json
+
+# IDE and OS
+.DS_Store
+.claude/
+.idea/
+.vscode/
+*.swp
+*~
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+compile_commands.json
+install_manifest.txt
+CTestTestfile.cmake
+_deps/
+CLAUDE.md
+AGENTS.md
+
+# Local AI workflow / editor (never commit)
+.cursor/
+
+# Local pipeline logs
+models/*.log
+
+# Submodule tool build dir (local only)
+third_party/llama.cpp/build-tools/

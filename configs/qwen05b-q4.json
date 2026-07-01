@@ -1,0 +1,12 @@
+{
+  "model": "models/qwen--qwen2.5-0.5b-instruct/qwen--qwen2.5-0.5b-instruct-q4_k_m.gguf",
+  "backend": "llama-cpu",
+  "quantization": "Q4_K_M",
+  "threads": 4,
+  "context_size": 2048,
+  "max_tokens": 128,
+  "prompts": {
+    "short": "What is 2 + 2? Answer briefly.",
+    "long": "Explain how KV cache reuse affects decode throughput in autoregressive language models. Keep the answer under 120 words."
+  }
+}

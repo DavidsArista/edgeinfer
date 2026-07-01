@@ -1,0 +1,4 @@
+# Model preparation dependencies for tools/prepare_model.py.
+# Conversion scripts come from the pinned llama.cpp submodule.
+-r ../third_party/llama.cpp/requirements/requirements-convert_hf_to_gguf.txt
+huggingface_hub>=0.26.0
