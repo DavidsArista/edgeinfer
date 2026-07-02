@@ -4,7 +4,7 @@ Reproducible embedded-LLM inference and benchmarking: Hugging Face models throug
 
 ## Status
 
-Step 2 complete: `tools/prepare_model.py` converts Hugging Face models to quantized GGUF artifacts. Native C++ load/tokenize begins in Step 3.
+Step 4 complete: `edgeinfer run` performs greedy/sampled autoregressive generation through the llama.cpp library API. Benchmark instrumentation begins in Step 5.
 
 ## Clone and dependencies
 
@@ -61,6 +61,23 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ./build/edgeinfer --version
 ```
+
+## Run inference (host)
+
+After preparing a model (see `docs/model-pipeline.md`):
+
+```bash
+./build/edgeinfer run \
+  --model models/qwen--qwen2.5-0.5b-instruct/qwen--qwen2.5-0.5b-instruct-q4_k_m.gguf \
+  --prompt "What is 2+2? Reply with one number." \
+  --backend llama-cpu \
+  --threads 4 \
+  --context-size 2048 \
+  --max-tokens 32 \
+  --temperature 0
+```
+
+`--temperature 0` selects greedy decoding. Set `--temperature` above `0` and optionally `--seed` for sampling.
 
 Expected output includes:
 
